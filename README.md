@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>My First Webpage</title>
-   </head>
+  </head>
   <body>
     <h1>Welcome to CS3</h1>
-   </body>
-</html>
+  </body>
+  </html>
