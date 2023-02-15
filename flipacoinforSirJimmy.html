@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			h1 {
+				text-align:center;
+			}
+			
+			#coin {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				border-radius:50px;
+				margin:auto;
+			}
+			
+			#player {
+				background-color: red;
+				width:50%;
+				float:left;
+				text-align:center;
+				color: white;
+			}
+			
+			#computer {
+				background-color: blue;
+				width:50%;
+				float:left;
+				text-align:center;
+				color: white;
+			}
+			
+			#scoring {
+				margin-top: 50px;
+			}
+			
+			#scoring p {
+				font-size: 100px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			
+			#button {
+				text-align: center;
+				margin-top: 20px;
+			}
+			
+			#random {
+				padding-top:35px;
+				text-align: center;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> FLIP-A-COIN </h1>
+		<div id="coin"><p id="random"></p> </div>
+		<div id="button">
+			<button onclick="flip()">FLIP A COIN</button>
+		</div>
+		<div id="scoring">
+			<div id="player">
+				<h2 id="playerName"></h2>
+				<p id="playerScore">0</p>
+			</div>
+			<div id="computer">
+				<h2>C̵͇̹͈̖̦̆̈́̀̽̐̎̕͠͝O̴̟͔̓͐͌́Ṁ̶̝͓̩̱͎̲͈̺̩͍͋̈́͝P̴̗͕̩̼̼̻͊̑͋́͗̕̕̕Ǔ̴̙͗̀͂͘T̸̟̮͔̙͋͋̏E̶̼̒̒̄̉̾͋̾R̷̙̖̜̙̩̱͙͎̿́͐̏̉̋͜</h2>
+				<p id="computerScore">0</p>
+			</div>
+		</div>
+		
+		<script>
+			// Before the page loads, ask user for their name and display it in the h2 with id "playerName"
+let playerName = prompt("Please enter your name:");
+document.getElementById("playerName").innerText = playerName;
+
+// Randomized HEAD or TAIL. The flipped coin result is shown in the paragraph with id="random".
+function flip() {
+  let result = Math.round(Math.random()); // 0 for HEAD, 1 for TAIL
+  if (result === 0) {
+    document.getElementById("random").innerText = "HEAD";
+  } else {
+    document.getElementById("random").innerText = "TAIL";
+  }
+  // Use confirm to ask for user's choice of HEAD or TAIL
+  let userChoice = confirm("Please choose HEAD (OK) or TAIL (Cancel)");
+  let playerScore = parseInt(document.getElementById("playerScore").innerText);
+  let computerScore = parseInt(document.getElementById("computerScore").innerText);
+  // If the user's choice is the same as the flipped coin result, add 1 point to player's score. Otherwise, add 1 point to computer's score.
+  if ((userChoice && result === 0) || (!userChoice && result === 1)) {
+    document.getElementById("playerScore").innerText = playerScore + 1;
+  } else {
+    document.getElementById("computerScore").innerText = computerScore + 1;
+  }
+}
+
+// Update scores regularly (every 2 seconds)
+setInterval(function() {
+  let playerScore = parseInt(document.getElementById("playerScore").innerText);
+  let computerScore = parseInt(document.getElementById("computerScore").innerText);
+  document.getElementById("playerScore").innerText = playerScore;
+  document.getElementById("computerScore").innerText = computerScore;
+}, 2000);
+
+		</script>
+	</body>
+</html>
