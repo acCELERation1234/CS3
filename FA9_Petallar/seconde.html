@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title> Second </title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style>
+		
+			button {
+			
+				display: block;
+				margin: auto;
+				height: 25px;
+				width: 125px;
+				margin-top: 50px;
+			
+			}
+			
+
+			img {
+			
+				display: block;
+				height: 500px;
+				width: 2000px;
+				margin: auto;
+				margin-top: 25px;
+				
+			}
+		
+		</style>
+
+	</head>
+	
+	<body>
+	
+		<button onclick="firstButtonFunction()"> First Button </button>
+		
+		<button onclick="secondButtonFunction()"> Second Button </button>
+		
+		<img id="image" src="images/sheesh.jpg">
+		
+		<script>
+		
+			function firstButtonFunction() {
+		
+			document.getElementById("image").src = "images/sheesh.jpg";
+		
+			}
+		
+			function secondButtonFunction() {
+		
+			document.getElementById("image").src = "images/sirjims.jpg";
+		
+			}
+		
+		</script>
+		
+	</body>
+	
+</html>
