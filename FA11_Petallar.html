@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="determineTriangle(sidea, sideb, sidec)">
+<script>
+	var sidea = prompt("Enter Digit");
+	var sideb = prompt("Enter Digit");
+	var sidec = prompt("Enter Digit");
+	
+	function determineTriangle(a,b,c){
+	if(a == b && b == c){
+		alert("Triangle is EQUILATERAL");
+		}
+	
+	else if(a == b || b == c || c == a){
+		alert("Triangle is ISOCELES");
+		}
+	
+	else{
+	alert("Triangle is SCALENE");
+		}
+	}
+</script>
+
+
+
+</body>
+</html>
