@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Time Password</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" content="Seller Pepugal">
+		<style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+	</head>
+	<body onload = "displayOTP()">
+		<h1> Final Destination Step </h1>
+		<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a href="" onclick = "randomOTP()"> New 
+	OTP </a></h2>
+		<button onclick = "checkOTP()"> Enter the OTP as shown above </button>
+		<script>
+			/* function randomOTP() generates a 6 digit otp using a for loop */
+			function randomOTP(){
+				let digits = "0123456789";
+				let random = "";
+				for (let i = 0; i < 6; i++){
+					random += digits[Math.floor(Math.random() * 10)];
+				}
+				document.getElementById("otp").innerHTML = random;
+			}
+			/* function displayOTP() displays the otp from function randomOTP() */
+			function displayOTP(){
+				randomOTP();
+			}
+			/* function checkOTP verifies the input OTP and redirects the user to a website if the input matches with the given otp */
+			function checkOTP(){
+				let x = prompt("Please enter the given OTP:");
+				let y = document.getElementById("otp").innerHTML;
+				if (x === y){
+					window.open("https://www.youtube.com/watch?v=6av5apM525s");
+				} 
+				else{
+					alert("Yo memory is shii dawg, Incorrect OTP");
+					randomOTP();
+				}
+			}
+		</script>
+	</body>
+</html>
