@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coining Tossing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" content="Celer Pepugal">
+        <style>
+        	body {
+        		background: #4d4d4d;
+            	text-align: center;
+            	font-family: arial;
+                color: #f2f2f2; 
+            }
+            button {
+            	padding: 10px; 
+            	background:#8e44ad;
+            	color: #fff; 
+            }
+            span {
+            	color: #f1c40f; 
+            }
+            #coin, h5 {
+            	color: #f1c40f; 
+            }
+            #coin { 
+            	background: #424242; 
+            	width: 25px; 
+                height: 25px;
+                padding: 25px;          
+                border: 5px dashed #212121; 
+                border-radius: 50%;
+                margin: 0 auto;
+                
+            }
+            
+        </style>
+
+	</head>
+	<body onload="getGuess()">
+        <h1> Heads or Tail? </h1>
+        <h2 onclick="getGuess()"> Click here to change your Guess: <span id="guess"> </span></h2>
+        <h2 id="coin" onclick="flip(),check()"> H </span></h2>   
+        <h5> Click on the coin above to randomly change its face and compare with your guess </h5> 
+        <script>
+            /* function getGuess() prompts user to input their choice as H or T
+			and alerts a specific message if the input is incorrect */
+            var getGuess = function() {
+                uGuess = prompt("Type H for head and T for tail","H");
+                uGuess.toUpperCase; // converting to an uppercase letter
+                (uGuess != "H" && uGuess != "T") ?	alert("Wrong Input"):
+                    guess.innerHTML = uGuess;
+            }
+			/* function flip() generates a random number between -1 and 2, then 
+			sets a condition to replace the letter displayed on the coin*/
+			function flip(){
+				flip = Math.floor(Math.random() * 2);
+				if (flip == 0){
+					document.getElementById("coin").innerHTML = "H";
+					}
+				else{
+				document.getElementById("coin").innerHTML = "T";
+				}
+			}
+			/* function check() verifies the correct and wrong guesses if 
+			the selected probability matches up with the random pick */
+			function check(){
+				if ((flip == 0 && uGuess == "H") || (flip == 1 && uGuess == "T")){
+					alert("Correct Guess");
+					}
+				else{
+					alert("Wrong Guess");
+					}
+			}
+
+        </script>
+	</body>
+</html>
