@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Car Deprecation Calculator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" content="Seller">
+        <style>
+        	body {background: lightblue; 
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            span {color: maroon}
+        </style>
+
+	</head>
+<body>
+	<h1> Car Depreciation Calculator </h1>
+	<h2> Your Car Model: <span id="model"> </span></h2>
+    <h2> Car Cost: <span id="cost"> </span></h2>
+    <h2> Age of your Car: <span id="age"> </span></h2>
+    <h2> Good Condition?: <span id="condition"> </span></h2>
+    <h2> Your Car's Current Market Value: <span id="currentvalue"> </span></h2>
+    
+    <button onclick="enterCar()"> Pwease enter your Car Information </button>
+    <script>
+    	/* function enterCar() prompts the user to input the details of the car then displays it */
+    	function enterCar() {
+        	carmodel = prompt("What Car Model(her name)");
+            carcost = prompt("How much did you buy her?($)");
+            carage = prompt("How old is she?(in years)");
+            good = confirm("In Good Condition? Ok for Yes / Cancel for No");
+            model.innerHTML = carmodel;
+            cost.innerHTML = carcost;
+            age.innerHTML = carage;
+            condition.innerHTML = (good) ? "Yes" : "No";      
+            computeMarketValue(parseFloat(carcost),parseFloat(carage),good);
+        }
+		/* function computeMarketValue(cost, age, condition) calculates the car's current market value */
+        function computeMarketValue(cost, age, condition){
+            var cmv = 0;
+            if (age > 10){
+                cmv = 70000;
+            }
+			else if (age >= 8){
+                cmv = 100000;
+            }
+			else if (age >= 5){
+                cmv = cost * 0.25;
+            }
+			else{
+                cmv = cost * 0.5;
+            }
+            if(!condition){
+                cmv = cmv * 0.9;
+            }
+            currentvalue.innerHTML = cmv;
+        }
+    </script>
+    
+</body>
+</html>
