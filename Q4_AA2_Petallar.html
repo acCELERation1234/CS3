@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Celer</title>
+			<meta name="viewport" content="width=device-width">
+		</head>
+			<style>
+		body {
+			background-color: black;
+			color: orange;
+			font-family: Arial, sans-serif;
+		}
+		
+		.focus {
+			background-color: white;
+			color: black;
+		}
+		
+		.blur {
+			background-color: #E7E7E7;
+		}
+		
+		#output {
+			margin-top: 30px;
+			margin-left: 33%;
+			margin-right: 33%;
+			background-color: black;
+			color: orange;
+			padding: 20px;
+			border-radius: 3px;
+			border: 1px solid white;
+		}
+		
+		fieldset {
+			margin-left: 33%;
+			margin-right: 33%;
+			background-color: black;
+			color: orange;
+			padding: 20px;
+			border-radius: 5px;
+		}
+		
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		select,
+		textarea {
+			width: 80%;
+			padding: 10px;
+
+			border-color: white;
+			border-radius: 3px;
+			border-width: 1px;
+			margin-bottom: 10px;
+			color: black;
+		}
+		
+		input[type="submit"],
+		button {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 3px;
+			background-color: #4F4F4F;
+			color: #E7E7E7;
+			cursor: pointer;
+		}
+		
+		button {
+			margin-left: 5px;
+		}
+		</style>
+		<center>
+		<body>
+		<form id="form">
+		<fieldset>
+		<center>
+			<div id="title">
+			<h1 style="color: white;">Ce<span style="color: black;
+													background-color: orange;
+													padding: 1px;
+													border-radius: 3px">ler</span></h1>
+			</div>
+		</center>
+			
+			<div>
+				<h2 style="color: white;">Sign Up for Free</h2>
+				<h5 style="color: gray;">and enhance your experience</h5>
+			</div>
+		<div>
+        <input type="text" id="name" oninput="lalabs()" placeholder="Name" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <input type="text" id="nickname" placeholder="Nickname" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <select id="gender" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="prefer-not-to-mention">Prefer Not to Mention</option>
+			<option value="Attack Helicopter">Attack Helicopter</option>
+			<option value="Leopard Tank">Leopard Tank</option>
+			<option value="Attack Helicopter">Attack Helicopter</option>
+			<option value="Why are there so many f**king options ...">Why are there so many f**king options ...</option>
+			<option value="Apache Helicopter">Apache Helicopter</option>
+			<option value="A chair">A chair</option>
+			<option value="F**king ridiculous question">F**king ridiculous question</option>
+			<option value="A Rubber Ball">A Rubber Ball</option>
+			<option value="Attack Helicopter">Attack Helicopter</option>
+			<option value="f*** you i’m a dragon">f*** you i’m a dragon</option>
+			<option value="APACHE ATTACK HELICOPTER">APACHE ATTACK HELICOPTER</option>
+
+        </select>
+		</div>
+				
+		<div>
+        <input type="password" id="password" placeholder="Password" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <input type="email" id="email" placeholder="Email" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <input type="text" id="address" placeholder="Address" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <input type="text" id="interests" placeholder="Interests" onblur="validateInput(this)" onfocus="clearValidation(this)" required>
+		</div>
+		
+		<div>
+        <input type="submit" value="Submit">
+        <p style="color: white;">Already have an account? <span onclick="reset()" style="cursor: pointer;
+																							color: orange;">Reset</span> now</p>
+		
+		<h5 style="color: gray;">By signing up, you agree to Celer's <span style="color: orange;">Terms and Conditions.</span></h5>
+		</div>
+				</fieldset>
+			</form>
+		</center>
+	<script>
+			function lalabs(){
+				var name = document.getElementById('name').value;
+					if (name === 'Lyrisha Miles Yabes Fernando') {
+						window.location.href = 'https://www.youtube.com/watch?v=vV0VeWRox-o&ab_channel=BagOnly';
+					}
+				}
+
+			function validateInput(element){
+				if (element.value === ''){
+					element.classList.add('blur');
+				}
+				else{
+					element.classList.remove('blur');
+					element.classList.add('focus');
+				}
+			}
+			function reset(){
+				location.reload();
+			}
+			function clearValidation(element){
+				element.classList.remove('blur');
+				element.classList.remove('focus');
+			}
+			document.getElementById('form').addEventListener('submit', function(event){
+			event.preventDefault();
+				
+				var name = document.getElementById('name').value;
+				var nickname = document.getElementById('nickname').value;
+				var gender = document.getElementById('gender').value;
+				var password = document.getElementById('password').value;
+				var email = document.getElementById('email').value;
+				var address = document.getElementById('address').value;
+				var interests = document.getElementById('interests').value;
+				var output = document.getElementById('output');
+			
+				output.innerHTML = '<h2 style="color: white;">Information</h2>';
+				output.innerHTML += '<p><strong>Name:</strong> ' + name + '</p>';
+				output.innerHTML += '<p><strong>Nickname:</strong> ' + nickname + '</p>';
+				output.innerHTML += '<p><strong>Gender:</strong> ' + gender + '</p>';
+				output.innerHTML += '<p><strong>Password:</strong> ' + password + '</p>';
+				output.innerHTML += '<p><strong>Email:</strong> ' + email + '</p>';
+				output.innerHTML += '<p><strong>Address:</strong> ' + address + '</p>';
+				output.innerHTML += '<p><strong>Interests:</strong> ' + interests + '</p>';
+			});
+	</script>
+			<div id="output"></div>
+	</body>
+	</html>
